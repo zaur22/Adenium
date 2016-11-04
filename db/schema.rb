@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102205445) do
+ActiveRecord::Schema.define(version: 20161104170024) do
 
   create_table "blocks", force: :cascade do |t|
     t.string   "name"
@@ -36,10 +36,21 @@ ActiveRecord::Schema.define(version: 20161102205445) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "version_block_relations", force: :cascade do |t|
+    t.integer  "version_id"
+    t.integer  "block_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["block_id"], name: "index_version_block_relations_on_block_id"
+    t.index ["version_id"], name: "index_version_block_relations_on_version_id"
+  end
+
   create_table "versions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "page_id"
+    t.index ["page_id"], name: "index_versions_on_page_id"
   end
 
 end
