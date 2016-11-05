@@ -1,9 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <p id="notice"><%= notice %></p>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @version.name %>
-</p>
+<div class="row">
+  <div class="row">
+    <h1>
+    	<%= @version.name %>
+    </h1>
+  </div>
+  <div class="row">
+  	<%= link_to 'Edit', edit_version_path(@version) %> |
+	<%= link_to 'Back', version_path %>
+    <%= link_to 'Новый вариант', new_block_path %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_version_path(@version) %> |
-<%= link_to 'Back', versions_path %>
+
+<%= render 'blocks/blocks_list', blocks: @blocks %>

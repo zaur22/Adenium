@@ -10,11 +10,13 @@ class VersionsController < ApplicationController
   # GET /versions/1
   # GET /versions/1.json
   def show
+    @blocks = @version.blocks
   end
 
   # GET /versions/new
   def new
     @version = Version.new
+    @version.page_id = new_version_params()[:page_id]
   end
 
   # GET /versions/1/edit
@@ -69,6 +71,10 @@ class VersionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def version_params
-      params.require(:version).permit(:name)
+      params.require(:version).permit(:name, :page_id)
+    end
+
+    def new_version_params
+      params.permit(:page_id)
     end
 end

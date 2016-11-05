@@ -1,0 +1,30 @@
+<div class="table-responsive">
+<table class="table"> 
+  <thead>
+    <tr>
+      <th>
+        Версия страницы
+      </th>
+      <th>
+        Изменения
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% versions.each do |version| %>
+      <tr>
+        <td>
+          <%=link_to(version) do%>
+            <%= version.name %>
+          <% end -%>
+        </td>
+        <td>
+          <%= link_to 'Show', version %>
+          <%= link_to 'Edit', edit_version_path(version) %>
+          <%= link_to 'Destroy', version, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

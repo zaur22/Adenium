@@ -1,9 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <p id="notice"><%= notice %></p>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="row">
+  <div class="row">
+    <h1>
+    	<%= @project.name %>
+    </h1>
+  </div>
+  <div class="row">
+  	<%= link_to 'Edit', edit_project_path(@project) %> |
+	<%= link_to 'Back', projects_path %>
+    <%= link_to 'Новая страница', new_project_page_path(@project.id) %>
+  </div>
+</div>
+<div class="row">
+	<%= render 'pages/pages_list', pages: @pages %>
+</div>

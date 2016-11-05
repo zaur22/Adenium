@@ -1,14 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <p id="notice"><%= notice %></p>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @page.name %>
-</p>
-
-<p>
-  <strong>Route:</strong>
-  <%= @page.route %>
-</p>
-
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<div class="row">
+  <div class="row">
+    <h1>
+    	<%= @page.name %>
+    </h1>
+  </div>
+  <div class="row">
+  	<%= link_to 'Edit', edit_page_path(@page) %> |
+	<%= link_to 'Back', page_path %>
+    <%= link_to 'Новый вариант', new_page_version_path(@page.id) %>
+  </div>
+</div>
+<%= render 'versions/versions_list', versions: @versions %>

@@ -1,0 +1,34 @@
+<div class="table-responsive">
+<table class="table"> 
+  <thead>
+    <tr>
+      <th>
+        Название страницы 
+      </th>
+      <th>
+        Адрес 
+      </th>
+      <th>
+        Изменения
+      </th>
+    </tr>
+  </thead>
+  <tbody >
+    <% pages.each do |page| %>
+      <tr>
+        <td>
+          <%=link_to(page) do %>
+            <%= page.name %>
+          <% end -%>
+        </td>
+        <td><%= page.route %></td>
+        <td>
+          <%= link_to 'Show', project_page_url(@project) %>
+          <%= link_to 'Edit', edit_project_page_path(page) %>
+          <%= link_to 'Destroy', project_page_url(@project), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

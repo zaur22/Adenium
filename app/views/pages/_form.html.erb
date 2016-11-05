@@ -20,7 +20,7 @@
     <%= f.label :route %>
     <%= f.text_field :route %>
   </div>
-
+  <%=f.hidden_field :project_id, value: page.project_id%>
   <div class="actions">
     <%= f.submit %>
   </div>

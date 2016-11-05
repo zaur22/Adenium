@@ -11,6 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on("page:change", function(e){
+	dragula([document.getElementById(left),
+			document.getElementById(right)], 
+			{copy: true}
+	);
+})

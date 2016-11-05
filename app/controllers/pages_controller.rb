@@ -10,11 +10,13 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+    @versions = @page.versions
   end
 
   # GET /pages/new
   def new
     @page = Page.new
+    @page.project_id = new_page_params()[:project_id]
   end
 
   # GET /pages/1/edit
@@ -69,6 +71,10 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:name, :route)
+      params.require(:page).permit(:name, :route, :project_id)
+    end
+
+    def new_page_params
+      params.permit(:project_id)
     end
 end
