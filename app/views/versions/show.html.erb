@@ -1,19 +1,31 @@
-<div class="row">
-  <p id="notice"><%= notice %></p>
-</div>
-
-<div class="row">
-  <div class="row">
+<div class="row header-block">
+  <div class="container-fluid">
     <h1>
-    	<%= @version.name %>
+      <%= @version.name %>
     </h1>
   </div>
-  <div class="row">
-  	<%= link_to 'Edit', edit_version_path(@version) %> |
-	<%= link_to 'Back', version_path %>
-    <%= link_to 'Новый вариант', new_block_path %>
+</div>
+<div class="control-buttons">
+  <div>
+    <%= link_to 'Назад', version_path, class: "btn btn-default" %>
+    <%= link_to 'Параметры варианта', edit_version_path(@version), class: "btn btn-default" %>
+    <a href="#" class="btn btn-default" id="save_blocks" data-version-id="<%=@version.id%>">
+      Сохранить
+    </a>
+    <span class="dropdown">
+      <a id="dLabel" class="btn btn-default" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        Добавить блоки
+        <span class="caret"></span>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+        <%= render 'blocks/blocks_list', name: "all_blocks", blocks: @all_blocks %> 
+        <%= link_to 'Новый блок', new_block_path %>
+      </div>
+    </span>
+
   </div>
 </div>
 
-
-<%= render 'blocks/blocks_list', blocks: @blocks %>
+<div>
+  <%= render 'blocks/blocks_list', name: "version_blocks", blocks: @version_blocks %>  
+</div>

@@ -3,23 +3,18 @@
   <head>
     <title>Adenium</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-	<div class="container-fluid">
-	  	<div class="row">
-	  		<div class="col-sm-4 col-md-2" background-color="aaaaaa">
-	  			<div class="row">
-	  			 	<%= render 'layouts/nav' %>
-	  			</div>
-	  		</div>
-	  		<div class="col-sm-8 col-md-10">
-	  			    <%= yield %>	
-	  		</div>
-	  	</div>
-	 </div>
+  	<div class="main-nav">
+  		<%= render 'layouts/nav' %>
+  	</div>
+  	<div class="content">	
+  		<div class="container-fluid">
+			<%= yield %>	
+		</div>
+  	</div>
   </body>
 </html>

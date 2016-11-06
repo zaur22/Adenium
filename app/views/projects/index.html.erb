@@ -1,12 +1,12 @@
-<div class="row">
-  <p id="notice"><%= notice %></p>
-</div>
-<div class="row">
-  <div class="row">
-    <h1>Проекты</h1>
+
+<div class="row header-block">
+  <div class="container-fluid">
+    <h1>Созданные сайты</h1>
   </div>
-  <div class="row">
-    <%= link_to 'New Project', new_project_path %>
+</div>
+<div class="control-buttons">
+  <div>
+    <%= link_to 'Новый проект', new_project_path, class: "btn btn-default new-create-btn" %>
   </div>
 </div>
 <div class="row">
@@ -17,7 +17,7 @@
             <%= project.name %>
         </h2>
         <p>
-          information
+          Домен не подключён
         </p>
       <% end -%> 
     </div>
@@ -28,14 +28,4 @@
       <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     !-->
   <% end -%>
-  <div class="col-sm-4 col-md-3">
-    <a href="#{new_project_path}" class="tile">
-      <h2 class="tile-name">
-          Новый проект
-      </h2>
-      <p>
-        information
-      </p>
-    </a>  
-  </div>
 </div>

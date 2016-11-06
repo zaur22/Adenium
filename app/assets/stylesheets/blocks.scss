@@ -2,8 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .tile{
 	display: block;
 	height: 300px;
-	background-color: #aaaaaa;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjNjczYWI3IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzljMjdiMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(-45deg, rgba(103,58,183,1) 0%, rgba(156,39,176,1) 100%);
+	background: -webkit-linear-gradient(-45deg, rgba(103,58,183,1) 0%,rgba(156,39,176,1) 100%);
+	background: linear-gradient(135deg, rgba(103,58,183,1) 0%,rgba(156,39,176,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#673ab7', endColorstr='#9c27b0',GradientType=1 );
+	text-decoration: none;
+	&:hover{
+		background: inherit;
+		text-decoration: none !important;
+		background-color: #9C27B0;
+	}
+	p{
+		color: #ffffff;
+		text-align: center;
+		width: 100%;
+		position: absolute;
+		left: 0px;
+		bottom: 20px;
+	}
+	h2{
+		text-align: center;
+		padding-top: 100px;
+	}
+}
+
+
+.tile-name{
+	color: #fbfbfb;
+	text-decoration: none;
+	&:hover{
+		color: #fbfbfb;
+		text-decoration: none !important;
+	}
 }

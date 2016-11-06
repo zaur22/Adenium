@@ -10,7 +10,8 @@ class VersionsController < ApplicationController
   # GET /versions/1
   # GET /versions/1.json
   def show
-    @blocks = @version.blocks
+    @all_blocks = Block.all
+    @version_blocks = @version.blocks
   end
 
   # GET /versions/new
@@ -21,6 +22,18 @@ class VersionsController < ApplicationController
 
   # GET /versions/1/edit
   def edit
+  end
+
+  def edit_child_blocks_list
+    params = get_child_blocks_list;
+    blocks = Block.find(params[:list])
+    version = Version.find(params[:id]);
+    version.blocks = blocks;
+    version.save
+    params[:list].each_index{|i|
+      blocks[i].version_block_relations.find_by_version_id(params[:id]).position = i
+
+    }
   end
 
   # POST /versions
@@ -76,5 +89,9 @@ class VersionsController < ApplicationController
 
     def new_version_params
       params.permit(:page_id)
+    end
+
+    def get_child_blocks_list
+      params.permit({list:[]}, :id)
     end
 end

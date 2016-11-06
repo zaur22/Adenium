@@ -7,9 +7,9 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="<%=name%>" class="sortable">
     <% blocks.each do |block| %>
-      <tr>
+      <tr data-block-id="<%= block.id %>">
         <td><%= block.name %></td>
         <td>
           <%= link_to 'Show', block %>

@@ -13,12 +13,45 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require_tree .
 
-$(document).on("page:change", function(e){
-	dragula([document.getElementById(left),
-			document.getElementById(right)], 
-			{copy: true}
-	);
-})
+
+var init = function(){
+
+
+	$("#save_blocks").click(function(e){
+		e.stopPropagation();
+		version_id = $(this).data("versionId");
+		$(this).text("Сохранение...");
+		var id_arr = [];
+		$("#version_blocks tr").each(function(){
+			id_arr.push($(this).data("blockId"));
+		});
+		$.post("/versions/" + version_id + "/edit_child_blocks_list",
+			{
+				list: id_arr
+			}
+		);
+		$(this).text("Сохранить");
+	});
+}
+
+
+$(document).on('turbolinks:load', function() {
+	start_sortable();
+	$('.dropdown-toggle').dropdown();
+	init();
+});
+
+
+var start_sortable = function(){
+	$( "#version_blocks, #all_blocks").sortable({
+      connectWith: ".sortable",
+      helper: "clone"
+    });
+    $( ".block-list").disableSelection();
+}
+
+

@@ -1,17 +1,15 @@
-<div class="row">
-  <p id="notice"><%= notice %></p>
-</div>
-
-<div class="row">
-  <div class="row">
+<div class="row header-block">
+  <div class="container-fluid">
     <h1>
-    	<%= @page.name %>
+        <%= @page.name %>
     </h1>
   </div>
-  <div class="row">
-  	<%= link_to 'Edit', edit_page_path(@page) %> |
-	<%= link_to 'Back', page_path %>
-    <%= link_to 'Новый вариант', new_page_version_path(@page.id) %>
+</div>
+<div class="control-buttons">
+  <div>
+    <%= link_to 'Назад', page_path, class: "btn btn-default" %>
+    <%= link_to 'Параметры страницы', edit_page_path(@page), class: "btn btn-default" %> 
+    <%= link_to 'Новый вариант', new_page_version_path(@page.id),class: "btn btn-default new-create-btn" %>
   </div>
 </div>
 <%= render 'versions/versions_list', versions: @versions %>
